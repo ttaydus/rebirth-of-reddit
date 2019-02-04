@@ -9,7 +9,7 @@ const request = (url, callback) => {
   };
   
   request('http://www.reddit.com/r/TheOcho.json', function(data) {
-    console.log('data:', data);
+    //console.log('data:', data);
     const post = data.data.children;
     console.log('post:', post);
 
@@ -30,11 +30,28 @@ const request = (url, callback) => {
 
     //console.log(post[4].data.thumbnail)
 
-    request(post[4].data.url, function(data){
-        const thumbnailElem = document.createElement('div');
-        thumbnailElem.innerHTML = data;
-        getBox.appendChild(thumbnailElem);
-    })
+    const itsThumbnail = post[3].data.url;
+    console.log('itsUrl:',itsThumbnail)
+
+    
+    function opennLink(urll){
+        window.open(urll)
+        console.log('heard');
+    }
+
+
+    const thumbnailElem = document.createElement('div');
+    thumbnailElem.innerHTML = itsThumbnail;
+    getBox.appendChild(thumbnailElem);
+    thumbnailElem.addEventListener('click', opennLink);
+
+    // request(itsThumbnail, function(data){
+    //     const thumbnailElem = document.createElement('div');
+    //     thumbnailElem.innerHTML = data;
+    //     getBox.appendChild(thumbnailElem);
+    //     thumbnailElem.addEventListener('click', opennLink);
+
+    // })
 
 
     // post.forEach((single) => {
