@@ -1,0 +1,58 @@
+#navBar{
+    background-color:#D2B48C;
+    color:#556B2F;
+    border-top:2px solid #556B2F;
+    border-bottom: 2px solid #556B2F; 
+    padding:;
+    margin:;
+    display: flex;
+    justify-content: center;
+}
+
+.navButtons{
+    background-color:#D2B48C;
+    color:#556B2F;
+    font-size: 25px;
+    font-family: 'Bangers', cursive;
+    border-left:12px solid #556B2F;
+    border-right: 12px solid #556B2F;
+    border-top: 2px solid #556B2F;
+    border-bottom: 2px solid #556B2F;
+    padding:15px;
+    margin-left:10px;
+    margin-right:10px;
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+.navButtons:hover{
+    background-color: #805c39;
+    color: #009933;
+    font-size: 35px;
+    font-family: 'Bangers', cursive;
+    border-left:12px solid #009933;
+    border-right: 12px solid #009933;
+    border-top: 4px solid #009933;
+    border-bottom: 4px solid #009933;
+    padding:15px;
+    margin-left:5px;
+    margin-right:5px;
+    margin-top:2px;
+    margin-bottom:2px;
+    transition-duration: 500ms;
+}
+
+.title{
+    background-color:#D2B48C;
+    color:#556B2F;
+    font-size: 55px;
+    font-family: 'Bangers', cursive;
+    border-left:;
+    border-right: ;
+    border-top:;
+    border-bottom:;
+    padding-left:30px;
+    padding-right:20px;
+    padding-top:12px;
+    padding-bottom:10px;
+}

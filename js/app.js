@@ -1,3 +1,4 @@
+
 const request = (url, callback) => {
     const oReq = new XMLHttpRequest();
     oReq.addEventListener('load', function(data) {
@@ -9,41 +10,54 @@ const request = (url, callback) => {
   };
   
   request('http://www.reddit.com/r/TheOcho.json', function(data) {
-    //console.log('data:', data);
-    const post = data.data.children;
-    console.log('post:', post);
+    // console.log('data:', data);
+    const individualPost = data.data.children;
+    // console.log('individualPost:', individualPost);
+    request(individualPost[4].data.thumbnail, function(data){
+        console.log(data)
+    });
+  });
 
-    const author = post[3].data.author;
-    const title = post[3].data.title;
-    const theUrl = post[3].data.url;
 
-    const getBox = document.getElementById('box');
-    const authorElem = document.createElement('div');
-    getBox.appendChild(authorElem);
-    authorElem.innerHTML = author;
-    const titleElem = document.createElement('div');
-    titleElem.innerHTML = title;
-    getBox.appendChild(titleElem);
-    const urlElem = document.createElement('div');
-    urlElem.innerHTML = theUrl
-    getBox.appendChild(urlElem);
 
-    //console.log(post[4].data.thumbnail)
 
-    const itsThumbnail = post[3].data.url;
-    console.log('itsUrl:',itsThumbnail)
+
+
+
+
+
+
+    // const author = post[3].data.author;
+    // const title = post[3].data.title;
+    // const theUrl = post[3].data.url;
+
+    // const getBox = document.getElementById('box');
+    // const authorElem = document.createElement('div');
+    // getBox.appendChild(authorElem);
+    // authorElem.innerHTML = author;
+    // const titleElem = document.createElement('div');
+    // titleElem.innerHTML = title;
+    // getBox.appendChild(titleElem);
+    // const urlElem = document.createElement('div');
+    // urlElem.innerHTML = theUrl
+    // getBox.appendChild(urlElem);
+
+    // //console.log(post[4].data.thumbnail)
+
+    // const itsThumbnail = post[3].data.url;
+    // console.log('itsUrl:',itsThumbnail)
 
     
-    function opennLink(urll){
-        window.open(urll)
-        console.log('heard');
-    }
+    // function opennLink(urll){
+    //     window.open(urll)
+    //     console.log('heard');
+    // }
 
 
-    const thumbnailElem = document.createElement('div');
-    thumbnailElem.innerHTML = itsThumbnail;
-    getBox.appendChild(thumbnailElem);
-    thumbnailElem.addEventListener('click', opennLink);
+    // const thumbnailElem = document.createElement('div');
+    // thumbnailElem.innerHTML = itsThumbnail;
+    // getBox.appendChild(thumbnailElem);
+    // thumbnailElem.addEventListener('click', opennLink);
 
     // request(itsThumbnail, function(data){
     //     const thumbnailElem = document.createElement('div');
@@ -65,11 +79,11 @@ const request = (url, callback) => {
     //     getBox.appendChild(authorElem);
     //     authorElem.innerHTML = author;
 
-        //request()
+    //     request()
     // })
 
 
-  });
+//   });
 
 
 // Disecting each post
