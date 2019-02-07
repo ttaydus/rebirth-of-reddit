@@ -10,23 +10,43 @@ const request = (url, callback) => {
   };
   
   request('http://www.reddit.com/r/TheOcho.json', function(data) {
-    // console.log('data:', data);
-    const individualPost = data.data.children;
-    console.log('individualPost:', individualPost);
-    individualPost.forEach((post) => {
-        // const author = post.data.author;
-        // const title = post.data.title;
-        // const mainText = post.data.selftext;
+    //console.log('data:', data);
+    const individualChildren = data.data.children;
+    console.log('individualChildren:', individualChildren);
+    individualChildren.forEach((child) => {
+        const author = child.data.author;
+        const title = child.data.title;
+        const textContent = child.data.selftext;
+        const thumbnail = child.data.url;
 
-        // const getPostsBlock = document.getElementsByClassName('postsBlock');
-        // const newPostFrame = document.createElement('div');
-        // newPostFrame.className = 'postFrame';
-        // getPostsBlock.appendChild(newPostFrame);
+        const getPostsBlock = document.getElementById('postsBlock');
+        const newPostFrame = document.createElement('div');
+        newPostFrame.className = 'postFrame';
+        getPostsBlock.appendChild(newPostFrame);
         
-        // const newPostTitle = document.createElement('div');
-        // newPostTitle.className = 'postTitle';
-        // newPostTitle.innerHTML = title;
-        // newPostFrame.appendChild(newPostTitle); 
+        const newPostTitle = document.createElement('div');
+        newPostTitle.className = 'postTitle';
+        newPostTitle.innerHTML = title;
+        newPostFrame.appendChild(newPostTitle); 
+
+        const newPostAuthor = document.createElement('div');
+        newPostAuthor.className = 'postAuthor';
+        newPostAuthor.innerHTML = author;
+        newPostFrame.appendChild(newPostAuthor); 
+
+        // const newTextContent = document.createElement('div');
+        // newTextContent.className = 'textContent';
+        // newTextContent.innerHTML = textContent;
+        // newPostFrame.appendChild(newTextContent); 
+
+        request(thumbnail, function(data) {
+          const newThumbnail = document.createElement('div');
+          newThumbnail.className = 'postThumbnail';
+          newThumbnail.innerHTML = thumbnail;
+          newPostFrame.appendChild(newThumbnail);
+        });
+        
+    
     });
   });
 
