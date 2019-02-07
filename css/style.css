@@ -1,12 +1,15 @@
 #navBar{
     background-color:#D2B48C;
     color:#556B2F;
-    border-top:2px solid #556B2F;
-    border-bottom: 2px solid #556B2F; 
+    border-top:10px double #556B2F;
+    border-bottom: 10px double #556B2F; 
     padding:;
     margin-top:;
     display: flex;
     justify-content: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
 }
 
 .navButtons{
@@ -50,7 +53,7 @@
     border-left:;
     border-right: ;
     border-top:;
-    border-bottom:;
+    border-bottom:;  
     padding-left:30px;
     padding-right:20px;
     padding-top:12px;
@@ -66,14 +69,44 @@
 
 .postFrame{
     background-color: #556B2F;
-    margin-top: 50px;
+    margin-top: 150px;
     margin-bottom: 50px;
     margin-right: 50px;
     margin-left: 50px;
     width: 500px;
-   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid ;
+    box-shadow: 20px 20px 20px  #2a3517;
+
 }
 
 .postTitle{
+    font-size: 30px;
+    margin: 10px; 
+    font-family: 'Bangers', cursive;
+    background-color: #805c39;
+    border: 2px solid black; 
+    color: #D2B48C; 
+    width: 510px;
+    padding: 10px;
+    margin-top: 25px;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+}
 
+.postAuthor{
+    font-size: 20px; 
+    font-family: 'Cinzel', serif;
+    color: black; 
+    margin-top: 30px;
+}
+
+.postThumbnail{
+    height: 50%;
+    width: 70%;
 }
